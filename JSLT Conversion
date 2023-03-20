@@ -1,0 +1,63 @@
+let registeredOfficeAddresses = [for (.registeredOfficeAddresses)
+                    let ROAattributes = .addresses.attributes 
+                    {
+         "id": .id,
+         "type" : .name,
+          "attributes" : {
+                "addressCategoryType": "G",
+                "addressTypeCode": 162,
+                "localityName": $ROAattributes.City,
+                "addressPostcode": $ROAattributes.PostCode,
+                "addressStateCode": $ROAattributes.RegionCode,
+                "addressCountryCode": $ROAattributes.CountryCode,
+                "addressLine1": $ROAattributes.Line1,
+                "addressLine2":  $ROAattributes.Line2,
+                "startDate" : .attributes.StartDate
+          }
+
+      }]
+
+let ppobAddresses = [for (.ppobAddresses)
+                    let ppobAddresses = .addresses.attributes 
+                    {
+         "id": .id,
+         "type" : .name,
+          "attributes" : {
+                "addressCategoryType": "G",
+                "addressTypeCode": 162,
+                "localityName": $ppobAddresses.City,
+                "addressPostcode": $ppobAddresses.PostCode,
+                "addressStateCode": $ppobAddresses.RegionCode,
+                "addressCountryCode": $ppobAddresses.CountryCode,
+                "addressLine1": $ppobAddresses.Line1,
+                "addressLine2":  $ppobAddresses.Line2,
+                "startDate" : .attributes.StartDate
+          }
+
+      }]
+let EMattributes = .email.attributes
+let email =  [{ "id" : .email.id,
+        "type" : .email.name,
+        "attributes" : {
+                "addressCategoryType": "G",
+                "addressTypeCode": 164,
+                "internetEmailAddress" : $EMattributes.Email,
+                "startDate" : $EMattributes.StartDate
+        }
+      }]
+let Mattributes = .mobile.attributes
+let mobile = [{ "id" : .mobile.id,
+        "type" : .mobile.name,
+        "attributes" : {
+                "addressCategoryType": "T",
+                "addressTypeCode": 122,
+                "phoneNumber" : $Mattributes.Number,
+                "countryCallingCode": $Mattributes.CountryCallingCode,
+                "startDate" : $Mattributes.StartDate
+        }
+      }]
+
+   
+{
+     "addresses" : $registeredOfficeAddresses + $ppobAddresses + $email + $mobile
+}
