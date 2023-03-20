@@ -1,40 +1,26 @@
-let registeredOfficeAddresses = [for (.registeredOfficeAddresses)
-                    let ROAattributes = .addresses.attributes 
+
+def outputFormattedAddress(AddressType)
+ [for ($AddressType)
+                    let attributes = .addresses.attributes 
                     {
          "id": .id,
          "type" : .name,
           "attributes" : {
                 "addressCategoryType": "G",
                 "addressTypeCode": 162,
-                "localityName": $ROAattributes.City,
-                "addressPostcode": $ROAattributes.PostCode,
-                "addressStateCode": $ROAattributes.RegionCode,
-                "addressCountryCode": $ROAattributes.CountryCode,
-                "addressLine1": $ROAattributes.Line1,
-                "addressLine2":  $ROAattributes.Line2,
+                "localityName": $attributes.City,
+                "addressPostcode": $attributes.PostCode,
+                "addressStateCode": $attributes.RegionCode,
+                "addressCountryCode": $attributes.CountryCode,
+                "addressLine1": $attributes.Line1,
+                "addressLine2":  $attributes.Line2,
                 "startDate" : .attributes.StartDate
           }
 
       }]
+let registeredOfficeAddresses = outputFormattedAddress(.registeredOfficeAddresses)
+let ppobAddresses = outputFormattedAddress(.ppobAddresses)
 
-let ppobAddresses = [for (.ppobAddresses)
-                    let ppobAddresses = .addresses.attributes 
-                    {
-         "id": .id,
-         "type" : .name,
-          "attributes" : {
-                "addressCategoryType": "G",
-                "addressTypeCode": 162,
-                "localityName": $ppobAddresses.City,
-                "addressPostcode": $ppobAddresses.PostCode,
-                "addressStateCode": $ppobAddresses.RegionCode,
-                "addressCountryCode": $ppobAddresses.CountryCode,
-                "addressLine1": $ppobAddresses.Line1,
-                "addressLine2":  $ppobAddresses.Line2,
-                "startDate" : .attributes.StartDate
-          }
-
-      }]
 let EMattributes = .email.attributes
 let email =  [{ "id" : .email.id,
         "type" : .email.name,
@@ -59,5 +45,5 @@ let mobile = [{ "id" : .mobile.id,
 
    
 {
-     "addresses" : $registeredOfficeAddresses + $ppobAddresses + $email + $mobile
+     "addresses" : $registeredOfficeAddresses +$ppobAddresses + $email + $mobile
 }
