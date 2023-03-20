@@ -1,0 +1,59 @@
+{
+    "addresses": [
+        {
+            "id": "437fb25be10e0d24",
+            "type": "RegisteredOfficeAddress",
+            "attributes": {
+                "addressCategoryType": "G",
+                "addressTypeCode": 162,
+                "localityName": "Suburb",
+                "addressPostcode": "1234",
+                "addressStateCode": "VIC",
+                "addressCountryCode": "AU",
+                "addressLine1": "Line1",
+                "addressLine2": "Line2",
+                "startDate": 20221214
+            },
+            "oidDigest": "1143470109"
+        },
+        {
+            "id": "c3a3b7831292ea84",
+            "type": "PlaceOfBusiness",
+            "attributes": {
+                "addressCategoryType": "G",
+                "addressTypeCode": 164,
+                "localityName": "Brisbane City",
+                "addressPostcode": "4005",
+                "addressStateCode": "QLD",
+                "addressCountryCode": "AU",
+                "addressLine1": "Test Address Line 1",
+                "addressLine2": "Test Address Line 2",
+                "startDate": 20221214
+            },
+            "oidDigest": "457686347"
+        },
+        {
+            "id": "ad9eb1c112d2fc4c",
+            "type": "EmailAddress",
+            "attributes": {
+                "addressCategoryType": "E",
+                "addressTypeCode": 170,
+                "internetEmailAddress": "LIMITEDBYSHARESPROPOSEACOMPANYNAMEHAPPYPATH@TEST.COM",
+                "startDate": 20221214
+            },
+            "oidDigest": "-487739423"
+        },
+        {
+            "id": "09e17847ac1ad0d2",
+            "type": "MobileAddress",
+            "attributes": {
+                "addressCategoryType": "T",
+                "addressTypeCode": 122,
+                "phoneNumber": "1234567890",
+                "countryCallingCode": "61",
+                "startDate": 20221214
+            },
+            "oidDigest": "-1415936973"
+        }
+    ]
+}
